@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>counter</title>
+    <style>
+        .counter{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            justify-content: space-between;
+    
+        }
+        .display-counter{
+            text-align: center;
+            padding: 2rem;
+            font-size: 3rem;
+            align-items: center;
+            text-align: center;
+            margin:3rem 6rem;
+            background-color: coral;
+        
+        }
+        button{
+            padding: 10px 15px;
+            background-color:#7c7c7c2b;
+            color: black;
+            font-size: 1.4rem;
+            border: none;
+            outline: none;  
+             width: 20%;   
+             border-radius:30px;
+             transition: 0.2s ease-in-out;
+              }
+         button:hover{
+                background: #7c7c7c6b;
+              }
+    
+
+    </style>
+</head>
+<body>
+  <div class="counter">
+       <div class="display-counter"></div>
+      <div class="buttons">
+        <button class="minus">-</button>
+        <button class="reset">reset</button>
+        <button class="plus">+</button>
+      </div>
+  </div>  
+
+  <script>
+      //selector
+      const  display = document.querySelector('.display-counter');
+      const minusBtn =document.querySelector('.minus');
+      const plusBtn = document.querySelector('.plus');
+      const resetBtn = document.querySelector('.reset');
+      
+      //eventlistner
+      minusBtn.addEventListener('click',counterMinusElem);
+      plusBtn.addEventListener('click',counterPlusElem);
+      resetBtn.addEventListener('click',counterResetElem);
+
+
+      let count =0;
+      updateCounter(count);
+
+     function counterMinusElem(){
+         if(count>0){
+            count--;
+         }else{
+             count=0;
+         }
+         updateCounter(count);
+     }
+     function counterPlusElem(){
+         count++;
+         updateCounter(count)
+     }
+
+     function counterResetElem(){
+         count=0;
+         updateCounter(count);
+     }
+     function updateCounter(val){
+         display.innerHTML=val;
+     }
+  </script>
+</body>
+</html>
